@@ -1,18 +1,17 @@
 class TLValue implements Comparable<TLValue> {
+  static final Object NULL_OBJECT = Object();
 
-  static final Object NULL_OBJECT=Object();
+  static final Object VOID_OBJECT = Object();
 
-  static final Object VOID_OBJECT=Object();
+  static final TLValue NULL = TLValue(is_null: true);
 
-  static final TLValue NULL = new TLValue(is_null: true);
+  static final TLValue VOID = TLValue(is_void: true);
 
-  static final TLValue VOID = new TLValue(is_void: true);
+  dynamic value = Object();
 
-  dynamic value = new Object();
-
-  TLValue({dynamic v,bool is_null=false,bool is_void=false}) {
-    if(is_void || is_null){
-      value=v;
+  TLValue({dynamic v, bool is_null = false, bool is_void = false}) {
+    if (is_void || is_null) {
+      value = v;
       return;
     }
     if (v == null) {
@@ -26,12 +25,11 @@ class TLValue implements Comparable<TLValue> {
   }
 
   bool asBoolean() {
-    return value.toString().toLowerCase()=='true';
+    return value.toString().toLowerCase() == 'true';
   }
 
   double asDouble() {
-
-    return  double.parse(value.toString());
+    return double.parse(value.toString());
   }
 
   int asInt() {
@@ -62,17 +60,17 @@ class TLValue implements Comparable<TLValue> {
       double diff = (this.asDouble() - that.asDouble()).abs();
       return diff < 0.00000000001;
     } else {
-      if(this.isList()){
+      if (this.isList()) {
         //TODO list
         return true;
-      }else{
-        if(this.isString()){
+      } else {
+        if (this.isString()) {
           //TODO STRING
-          print("resssss"+this.asString()==that.asString());
-          return this.asString()==that.asString();
-        }else{
+          print("resssss" + this.asString() == that.asString());
+          return this.asString() == that.asString();
+        } else {
           print("没有找到的 ${this.value}");
-          return this.value==that.value;
+          return this.value == that.value;
         }
       }
     }
@@ -113,16 +111,16 @@ class TLValue implements Comparable<TLValue> {
     } else if (this.isString() && other.isString()) {
       return this.asString().compareTo(other.asString());
     } else {
-      throw new Exception("illegal expression: can't compare `" +
-          this.toString() +
-          "` to `" +
-          other.toString() +
-          "`");
+      throw new Exception("illegal expression: can't compare `" + this.toString() + "` to `" + other.toString() + "`");
     }
   }
 
   @override
   String toString() {
-    return isNull() ? "NULL" : isVoid() ? "VOID" : value.toString();
+    return isNull()
+        ? "NULL"
+        : isVoid()
+            ? "VOID"
+            : value.toString();
   }
 }
