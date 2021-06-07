@@ -4,8 +4,8 @@ import 'BuildInFunction.dart';
 import 'EvalVisitor.dart';
 import 'Scope.dart';
 import 'TLValue.dart';
-import 'gen/TLLexer.dart';
-import 'gen/TLParser.dart';
+import 'gen/WhisperLanguageLexer.dart';
+import 'gen/WhisperLanguageParser.dart';
 
 class sum implements BuildInFunction {
   @override
@@ -21,9 +21,9 @@ class sum implements BuildInFunction {
 void main(List<String> arguments) {
   var a = InputStream.fromPath('case/main.whl');
   a.then((value) {
-    var lexer = TLLexer(value);
-    var parser = TLParser(CommonTokenStream(lexer));
-    parser.buildParseTree;
+    var lexer = WhisperLanguageLexer(value);
+    var parser = WhisperLanguageParser(CommonTokenStream(lexer));
+    parser.buildParseTree = true;
     ParseTree tree = parser.parse();
     var functions = {};
     functions['@sum'] = sum();

@@ -1,0 +1,1 @@
+java -jar ../antlr-4.9.2-complete.jar -no-listener  -o  bin/gen -visitor ../whisper-grammar/WhisperLanguage.g4 -Dlanguage=Dart

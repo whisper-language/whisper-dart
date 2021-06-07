@@ -1,17 +1,17 @@
-// Generated from ./TL.g4 by ANTLR 4.9.2
+// Generated from ../whisper-grammar/WhisperLanguage.g4 by ANTLR 4.9.2
 // ignore_for_file: unused_import, unused_local_variable, prefer_single_quotes
 import 'package:antlr4/antlr4.dart';
 
-import 'TLParser.dart';
-import 'TLVisitor.dart';
+import 'WhisperLanguageParser.dart';
+import 'WhisperLanguageVisitor.dart';
 
-/// This class provides an empty implementation of [TLVisitor],
+/// This class provides an empty implementation of [WhisperLanguageVisitor],
 /// which can be extended to create a visitor which only needs to handle
 /// a subset of the available methods.
 ///
 /// [T] is the return type of the visit operation. Use `void` for
 /// operations with no return type.
-class TLBaseVisitor<T> extends ParseTreeVisitor<T> implements TLVisitor<T> {
+class WhisperLanguageBaseVisitor<T> extends ParseTreeVisitor<T> implements WhisperLanguageVisitor<T> {
   /// The default implementation returns the result of calling
   /// [visitChildren] on [ctx].
   @override
@@ -171,7 +171,7 @@ class TLBaseVisitor<T> extends ParseTreeVisitor<T> implements TLVisitor<T> {
   /// The default implementation returns the result of calling
   /// [visitChildren] on [ctx].
   @override
-  T visitList(ListContext ctx) => visitChildren(ctx);
+  T visitList_Alias(List_AliasContext ctx) => visitChildren(ctx);
   /// The default implementation returns the result of calling
   /// [visitChildren] on [ctx].
   @override

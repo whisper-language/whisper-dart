@@ -9,11 +9,11 @@ import 'Function.dart';
 import 'ReturnValue.dart';
 import 'Scope.dart';
 import 'TLValue.dart';
-import 'gen/TLBaseVisitor.dart';
-import 'gen/TLLexer.dart';
-import 'gen/TLParser.dart';
+import 'gen/WhisperLanguageBaseVisitor.dart';
+import 'gen/WhisperLanguageLexer.dart';
+import 'gen/WhisperLanguageParser.dart';
 
-class EvalVisitor extends TLBaseVisitor<TLValue> {
+class EvalVisitor extends WhisperLanguageBaseVisitor<TLValue> {
   ReturnValue returnValue = ReturnValue();
   Scope scope;
   Map<dynamic, dynamic> functions = {};
@@ -32,7 +32,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
   @override
-  TLValue visitList(ListContext ctx) {
+  TLValue visitList_Alias(List_AliasContext ctx) {
     var list = <TLValue>[];
     if (ctx.exprList() != null) {
       for (var ex in ctx.exprList().expressions()) {
@@ -73,11 +73,11 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitMultExpression(MultExpressionContext ctx) {
     switch (ctx.op.type) {
-      case TLLexer.TOKEN_Multiply:
+      case WhisperLanguageLexer.TOKEN_Multiply:
         return multiply(ctx);
-      case TLLexer.TOKEN_Divide:
+      case WhisperLanguageLexer.TOKEN_Divide:
         return divide(ctx);
-      case TLLexer.TOKEN_Modulus:
+      case WhisperLanguageLexer.TOKEN_Modulus:
         return modulus(ctx);
       default:
         throw EvalException(msg: '位置哦的操作符类型: ${ctx.op.type.toString()}');
@@ -87,9 +87,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitAddExpression(AddExpressionContext ctx) {
     switch (ctx.op.type) {
-      case TLLexer.TOKEN_Add:
+      case WhisperLanguageLexer.TOKEN_Add:
         return add(ctx);
-      case TLLexer.TOKEN_Subtract:
+      case WhisperLanguageLexer.TOKEN_Subtract:
         return subtract(ctx);
       default:
         throw EvalException(msg: '未知的操作符: ' + ctx.op.type.toString());
@@ -99,13 +99,13 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitCompExpression(CompExpressionContext ctx) {
     switch (ctx.op.type) {
-      case TLLexer.TOKEN_LT:
+      case WhisperLanguageLexer.TOKEN_LT:
         return lt(ctx);
-      case TLLexer.TOKEN_LTEquals:
+      case WhisperLanguageLexer.TOKEN_LTEquals:
         return ltEq(ctx);
-      case TLLexer.TOKEN_GT:
+      case WhisperLanguageLexer.TOKEN_GT:
         return gt(ctx);
-      case TLLexer.TOKEN_GTEquals:
+      case WhisperLanguageLexer.TOKEN_GTEquals:
         return gtEq(ctx);
       default:
         throw EvalException(msg: '未知的操作符类型: ${ctx.op.type.toString()}');
@@ -115,9 +115,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitEqExpression(EqExpressionContext ctx) {
     switch (ctx.op.type) {
-      case TLLexer.TOKEN_Equals:
+      case WhisperLanguageLexer.TOKEN_Equals:
         return eq(ctx);
-      case TLLexer.TOKEN_NEquals:
+      case WhisperLanguageLexer.TOKEN_NEquals:
         return nEq(ctx);
       default:
         throw EvalException(msg: '未知的操作符类型: ${ctx.op.type.toString()}');
@@ -181,6 +181,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   TLValue add(AddExpressionContext ctx) {
     var lhs = visit(ctx.expression(0));
     var rhs = visit(ctx.expression(1));
+
     if (lhs == null || rhs == null) {
       throw EvalException(ctx: ctx);
     }
@@ -409,7 +410,8 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // list indexes?                            #listExpression
   @override
   TLValue visitListExpression(ListExpressionContext ctx) {
-    var val = visit(ctx.list());
+    var val = visit(ctx.list_Alias());
+
     if (ctx.indexes() != null) {
       var exps = ctx.indexes().expressions();
       val = resolveIndexes(val, exps);

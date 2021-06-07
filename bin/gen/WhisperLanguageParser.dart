@@ -1,64 +1,75 @@
-// Generated from ./TL.g4 by ANTLR 4.9.2
+// Generated from ../whisper-grammar/WhisperLanguage.g4 by ANTLR 4.9.2
 // ignore_for_file: unused_import, unused_local_variable, prefer_single_quotes
 import 'package:antlr4/antlr4.dart';
 import 'dart:io';
 
-import 'TLListener.dart';
-import 'TLBaseListener.dart';
-import 'TLVisitor.dart';
-import 'TLBaseVisitor.dart';
+import 'WhisperLanguageVisitor.dart';
+import 'WhisperLanguageBaseVisitor.dart';
 
 const int RULE_parse = 0, RULE_block = 1, RULE_statement = 2, RULE_assignment = 3, 
           RULE_functionCall = 4, RULE_ifStatement = 5, RULE_ifStat = 6, 
           RULE_elseIfStat = 7, RULE_elseStat = 8, RULE_functionDecl = 9, 
           RULE_forStatement = 10, RULE_whileStatement = 11, RULE_idList = 12, 
-          RULE_exprList = 13, RULE_expression = 14, RULE_list = 15, RULE_indexes = 16;
-class TLParser extends Parser {
+          RULE_exprList = 13, RULE_expression = 14, RULE_list_Alias = 15, 
+          RULE_indexes = 16;
+class WhisperLanguageParser extends Parser {
   static final checkVersion = () => RuntimeMetaData.checkVersion('4.9.2', RuntimeMetaData.VERSION);
   static const int TOKEN_EOF = IntStream.EOF;
 
   static final List<DFA> _decisionToDFA = List.generate(
       _ATN.numberOfDecisions, (i) => DFA(_ATN.getDecisionState(i), i));
   static final PredictionContextCache _sharedContextCache = PredictionContextCache();
-  static const int TOKEN_Println = 1, TOKEN_Print = 2, TOKEN_Input = 3, 
-                   TOKEN_Assert = 4, TOKEN_Size = 5, TOKEN_Def = 6, TOKEN_If = 7, 
-                   TOKEN_Else = 8, TOKEN_Return = 9, TOKEN_For = 10, TOKEN_While = 11, 
-                   TOKEN_To = 12, TOKEN_Do = 13, TOKEN_End = 14, TOKEN_In = 15, 
-                   TOKEN_Null = 16, TOKEN_Or = 17, TOKEN_And = 18, TOKEN_Equals = 19, 
-                   TOKEN_NEquals = 20, TOKEN_GTEquals = 21, TOKEN_LTEquals = 22, 
-                   TOKEN_Pow = 23, TOKEN_Excl = 24, TOKEN_GT = 25, TOKEN_LT = 26, 
-                   TOKEN_Add = 27, TOKEN_Subtract = 28, TOKEN_Multiply = 29, 
-                   TOKEN_Divide = 30, TOKEN_Modulus = 31, TOKEN_OBrace = 32, 
-                   TOKEN_CBrace = 33, TOKEN_OBracket = 34, TOKEN_CBracket = 35, 
-                   TOKEN_OParen = 36, TOKEN_CParen = 37, TOKEN_SColon = 38, 
-                   TOKEN_Assign = 39, TOKEN_Comma = 40, TOKEN_QMark = 41, 
-                   TOKEN_Colon = 42, TOKEN_Bool = 43, TOKEN_Number = 44, 
-                   TOKEN_BuildIdentifier = 45, TOKEN_Identifier = 46, TOKEN_String = 47, 
-                   TOKEN_Comment = 48, TOKEN_Space = 49;
+  static const int TOKEN_T__0 = 1, TOKEN_Println = 2, TOKEN_Print = 3, TOKEN_Input = 4, 
+                   TOKEN_Assert = 5, TOKEN_Size = 6, TOKEN_Def = 7, TOKEN_If = 8, 
+                   TOKEN_Else = 9, TOKEN_Return = 10, TOKEN_For = 11, TOKEN_While = 12, 
+                   TOKEN_To = 13, TOKEN_Do = 14, TOKEN_End = 15, TOKEN_In = 16, 
+                   TOKEN_Null = 17, TOKEN_LABEL_Alias = 18, TOKEN_GOTO_Alias = 19, 
+                   TOKEN_JUMP_Alias = 20, TOKEN_IMPORT_Alias = 21, TOKEN_INCLUDE_Alias = 22, 
+                   TOKEN_Modulus_Alias = 23, TOKEN_Class_Alias = 24, TOKEN_INTERFACE_Alias = 25, 
+                   TOKEN_EXTEND_Alias = 26, TOKEN_BitwiseAnd = 27, TOKEN_BitwiseOr = 28, 
+                   TOKEN_BitwiseNot = 29, TOKEN_BitwiseNegationOperator = 30, 
+                   TOKEN_LeftShiftOperator = 31, TOKEN_RightShiftOperator = 32, 
+                   TOKEN_Or = 33, TOKEN_And = 34, TOKEN_Equals = 35, TOKEN_NEquals = 36, 
+                   TOKEN_GTEquals = 37, TOKEN_LTEquals = 38, TOKEN_Excl = 39, 
+                   TOKEN_GT = 40, TOKEN_LT = 41, TOKEN_Add = 42, TOKEN_Subtract = 43, 
+                   TOKEN_Multiply = 44, TOKEN_Divide = 45, TOKEN_Modulus = 46, 
+                   TOKEN_OBrace = 47, TOKEN_CBrace = 48, TOKEN_OBracket = 49, 
+                   TOKEN_CBracket = 50, TOKEN_OParen = 51, TOKEN_CParen = 52, 
+                   TOKEN_SColon = 53, TOKEN_Assign = 54, TOKEN_Comma = 55, 
+                   TOKEN_QMark = 56, TOKEN_Colon = 57, TOKEN_Bool = 58, 
+                   TOKEN_Number = 59, TOKEN_BuildIdentifier = 60, TOKEN_Identifier = 61, 
+                   TOKEN_String_Alias = 62, TOKEN_Comment = 63, TOKEN_Space = 64;
 
   @override
   final List<String> ruleNames = [
     'parse', 'block', 'statement', 'assignment', 'functionCall', 'ifStatement', 
     'ifStat', 'elseIfStat', 'elseStat', 'functionDecl', 'forStatement', 
-    'whileStatement', 'idList', 'exprList', 'expression', 'list', 'indexes'
+    'whileStatement', 'idList', 'exprList', 'expression', 'list_Alias', 
+    'indexes'
   ];
 
   static final List<String> _LITERAL_NAMES = [
-      null, "'println'", "'print'", "'input'", "'assert'", "'size'", "'func'", 
-      "'if'", "'else'", "'return'", "'for'", "'while'", "'to'", "'do'", 
-      "'end'", "'in'", "'null'", "'||'", "'&&'", "'=='", "'!='", "'>='", 
-      "'<='", "'^'", "'!'", "'>'", "'<'", "'+'", "'-'", "'*'", "'/'", "'%'", 
-      "'{'", "'}'", "'['", "']'", "'('", "')'", "';'", "'='", "','", "'?'", 
-      "':'"
+      null, "'**'", "'println'", "'print'", "'input'", "'assert'", "'size'", 
+      "'func'", "'if'", "'else'", "'return'", "'for'", "'while'", "'to'", 
+      "'do'", "'end'", "'in'", "'null'", "'label'", "'goto'", "'jump'", 
+      "'import'", "'include'", "'modulue'", "'class'", "'interface'", "'extend'", 
+      "'&'", "'|'", "'^'", "'~'", "'>>'", "'<<'", "'||'", "'&&'", "'=='", 
+      "'!='", "'>='", "'<='", "'!'", "'>'", "'<'", "'+'", "'-'", "'*'", 
+      "'/'", "'%'", "'{'", "'}'", "'['", "']'", "'('", "')'", "';'", "'='", 
+      "','", "'?'", "':'"
   ];
   static final List<String> _SYMBOLIC_NAMES = [
-      null, "Println", "Print", "Input", "Assert", "Size", "Def", "If", 
-      "Else", "Return", "For", "While", "To", "Do", "End", "In", "Null", 
-      "Or", "And", "Equals", "NEquals", "GTEquals", "LTEquals", "Pow", "Excl", 
-      "GT", "LT", "Add", "Subtract", "Multiply", "Divide", "Modulus", "OBrace", 
-      "CBrace", "OBracket", "CBracket", "OParen", "CParen", "SColon", "Assign", 
-      "Comma", "QMark", "Colon", "Bool", "Number", "BuildIdentifier", "Identifier", 
-      "String", "Comment", "Space"
+      null, null, "Println", "Print", "Input", "Assert", "Size", "Def", 
+      "If", "Else", "Return", "For", "While", "To", "Do", "End", "In", "Null", 
+      "LABEL_Alias", "GOTO_Alias", "JUMP_Alias", "IMPORT_Alias", "INCLUDE_Alias", 
+      "Modulus_Alias", "Class_Alias", "INTERFACE_Alias", "EXTEND_Alias", 
+      "BitwiseAnd", "BitwiseOr", "BitwiseNot", "BitwiseNegationOperator", 
+      "LeftShiftOperator", "RightShiftOperator", "Or", "And", "Equals", 
+      "NEquals", "GTEquals", "LTEquals", "Excl", "GT", "LT", "Add", "Subtract", 
+      "Multiply", "Divide", "Modulus", "OBrace", "CBrace", "OBracket", "CBracket", 
+      "OParen", "CParen", "SColon", "Assign", "Comma", "QMark", "Colon", 
+      "Bool", "Number", "BuildIdentifier", "Identifier", "String_Alias", 
+      "Comment", "Space"
   ];
   static final Vocabulary VOCABULARY = VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -68,7 +79,7 @@ class TLParser extends Parser {
   }
 
   @override
-  String get grammarFileName => 'TL.g4';
+  String get grammarFileName => 'WhisperLanguage.g4';
 
   @override
   String get serializedATN => _serializedATN;
@@ -78,7 +89,7 @@ class TLParser extends Parser {
    return _ATN;
   }
 
-  TLParser(TokenStream input) : super(input) {
+  WhisperLanguageParser(TokenStream input) : super(input) {
     interpreter = ParserATNSimulator(this, _ATN, _decisionToDFA, _sharedContextCache);
   }
 
@@ -264,7 +275,7 @@ class TLParser extends Parser {
         state = 74;
         errorHandler.sync(this);
         _la = tokenStream.LA(1);
-        if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String))) != BigInt.zero)) {
+        if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String_Alias))) != BigInt.zero)) {
           state = 73;
           exprList();
         }
@@ -282,7 +293,7 @@ class TLParser extends Parser {
         state = 80;
         errorHandler.sync(this);
         _la = tokenStream.LA(1);
-        if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String))) != BigInt.zero)) {
+        if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String_Alias))) != BigInt.zero)) {
           state = 79;
           exprList();
         }
@@ -300,7 +311,7 @@ class TLParser extends Parser {
         state = 86;
         errorHandler.sync(this);
         _la = tokenStream.LA(1);
-        if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String))) != BigInt.zero)) {
+        if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String_Alias))) != BigInt.zero)) {
           state = 85;
           expression(0);
         }
@@ -701,7 +712,7 @@ class TLParser extends Parser {
         context = _localctx;
         _prevctx = _localctx;
         state = 189;
-        list();
+        list_Alias();
         state = 191;
         errorHandler.sync(this);
         switch (interpreter.adaptivePredict(tokenStream, 16, context)) {
@@ -731,7 +742,7 @@ class TLParser extends Parser {
         context = _localctx;
         _prevctx = _localctx;
         state = 197;
-        match(TOKEN_String);
+        match(TOKEN_String_Alias);
         state = 199;
         errorHandler.sync(this);
         switch (interpreter.adaptivePredict(tokenStream, 18, context)) {
@@ -771,9 +782,9 @@ class TLParser extends Parser {
         state = 210;
         errorHandler.sync(this);
         _la = tokenStream.LA(1);
-        if (_la == TOKEN_String) {
+        if (_la == TOKEN_String_Alias) {
           state = 209;
-          match(TOKEN_String);
+          match(TOKEN_String_Alias);
         }
 
         state = 212;
@@ -799,7 +810,7 @@ class TLParser extends Parser {
               throw FailedPredicateException(this, "precpred(context, 18)");
             }
             state = 216;
-            match(TOKEN_Pow);
+            match(TOKEN_T__0);
             state = 217;
             expression(18);
             break;
@@ -951,9 +962,9 @@ class TLParser extends Parser {
     return _localctx;
   }
 
-  ListContext list() {
-    dynamic _localctx = ListContext(context, state);
-    enterRule(_localctx, 30, RULE_list);
+  List_AliasContext list_Alias() {
+    dynamic _localctx = List_AliasContext(context, state);
+    enterRule(_localctx, 30, RULE_list_Alias);
     int _la;
     try {
       enterOuterAlt(_localctx, 1);
@@ -962,7 +973,7 @@ class TLParser extends Parser {
       state = 252;
       errorHandler.sync(this);
       _la = tokenStream.LA(1);
-      if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String))) != BigInt.zero)) {
+      if ((((_la) & ~0x3f) == 0 && ((BigInt.one << _la) & ((BigInt.one << TOKEN_Println) | (BigInt.one << TOKEN_Print) | (BigInt.one << TOKEN_Input) | (BigInt.one << TOKEN_Assert) | (BigInt.one << TOKEN_Size) | (BigInt.one << TOKEN_Null) | (BigInt.one << TOKEN_Excl) | (BigInt.one << TOKEN_Subtract) | (BigInt.one << TOKEN_OBracket) | (BigInt.one << TOKEN_OParen) | (BigInt.one << TOKEN_Bool) | (BigInt.one << TOKEN_Number) | (BigInt.one << TOKEN_BuildIdentifier) | (BigInt.one << TOKEN_Identifier) | (BigInt.one << TOKEN_String_Alias))) != BigInt.zero)) {
         state = 251;
         exprList();
       }
@@ -1039,7 +1050,7 @@ class TLParser extends Parser {
   }
 
   static const String _serializedATN = '\u{3}\u{608B}\u{A72A}\u{8133}\u{B9ED}'
-  	'\u{417C}\u{3BE7}\u{7786}\u{5964}\u{3}\u{33}\u{10B}\u{4}\u{2}\u{9}\u{2}'
+  	'\u{417C}\u{3BE7}\u{7786}\u{5964}\u{3}\u{42}\u{10B}\u{4}\u{2}\u{9}\u{2}'
   	'\u{4}\u{3}\u{9}\u{3}\u{4}\u{4}\u{9}\u{4}\u{4}\u{5}\u{9}\u{5}\u{4}\u{6}'
   	'\u{9}\u{6}\u{4}\u{7}\u{9}\u{7}\u{4}\u{8}\u{9}\u{8}\u{4}\u{9}\u{9}\u{9}'
   	'\u{4}\u{A}\u{9}\u{A}\u{4}\u{B}\u{9}\u{B}\u{4}\u{C}\u{9}\u{C}\u{4}\u{D}'
@@ -1082,9 +1093,9 @@ class TLParser extends Parser {
   	'\u{3}\u{11}\u{3}\u{11}\u{3}\u{12}\u{3}\u{12}\u{3}\u{12}\u{3}\u{12}\u{6}'
   	'\u{12}\u{107}\u{A}\u{12}\u{D}\u{12}\u{E}\u{12}\u{108}\u{3}\u{12}\u{2}'
   	'\u{3}\u{1E}\u{13}\u{2}\u{4}\u{6}\u{8}\u{A}\u{C}\u{E}\u{10}\u{12}\u{14}'
-  	'\u{16}\u{18}\u{1A}\u{1C}\u{1E}\u{20}\u{22}\u{2}\u{6}\u{3}\u{2}\u{1F}'
-  	'\u{21}\u{3}\u{2}\u{1D}\u{1E}\u{4}\u{2}\u{17}\u{18}\u{1B}\u{1C}\u{3}\u{2}'
-  	'\u{15}\u{16}\u{2}\u{12A}\u{2}\u{26}\u{3}\u{2}\u{2}\u{2}\u{4}\u{2E}\u{3}'
+  	'\u{16}\u{18}\u{1A}\u{1C}\u{1E}\u{20}\u{22}\u{2}\u{6}\u{3}\u{2}\u{2E}'
+  	'\u{30}\u{3}\u{2}\u{2C}\u{2D}\u{4}\u{2}\u{27}\u{28}\u{2A}\u{2B}\u{3}\u{2}'
+  	'\u{25}\u{26}\u{2}\u{12A}\u{2}\u{26}\u{3}\u{2}\u{2}\u{2}\u{4}\u{2E}\u{3}'
   	'\u{2}\u{2}\u{2}\u{6}\u{40}\u{3}\u{2}\u{2}\u{2}\u{8}\u{42}\u{3}\u{2}\u{2}'
   	'\u{2}\u{A}\u{6A}\u{3}\u{2}\u{2}\u{2}\u{C}\u{6C}\u{3}\u{2}\u{2}\u{2}\u{E}'
   	'\u{76}\u{3}\u{2}\u{2}\u{2}\u{10}\u{7C}\u{3}\u{2}\u{2}\u{2}\u{12}\u{83}'
@@ -1099,37 +1110,37 @@ class TLParser extends Parser {
   	'\u{B}\u{2}\u{2C}\u{2A}\u{3}\u{2}\u{2}\u{2}\u{2C}\u{2B}\u{3}\u{2}\u{2}'
   	'\u{2}\u{2D}\u{30}\u{3}\u{2}\u{2}\u{2}\u{2E}\u{2C}\u{3}\u{2}\u{2}\u{2}'
   	'\u{2E}\u{2F}\u{3}\u{2}\u{2}\u{2}\u{2F}\u{35}\u{3}\u{2}\u{2}\u{2}\u{30}'
-  	'\u{2E}\u{3}\u{2}\u{2}\u{2}\u{31}\u{32}\u{7}\u{B}\u{2}\u{2}\u{32}\u{33}'
-  	'\u{5}\u{1E}\u{10}\u{2}\u{33}\u{34}\u{7}\u{28}\u{2}\u{2}\u{34}\u{36}\u{3}'
+  	'\u{2E}\u{3}\u{2}\u{2}\u{2}\u{31}\u{32}\u{7}\u{C}\u{2}\u{2}\u{32}\u{33}'
+  	'\u{5}\u{1E}\u{10}\u{2}\u{33}\u{34}\u{7}\u{37}\u{2}\u{2}\u{34}\u{36}\u{3}'
   	'\u{2}\u{2}\u{2}\u{35}\u{31}\u{3}\u{2}\u{2}\u{2}\u{35}\u{36}\u{3}\u{2}'
   	'\u{2}\u{2}\u{36}\u{5}\u{3}\u{2}\u{2}\u{2}\u{37}\u{38}\u{5}\u{8}\u{5}'
-  	'\u{2}\u{38}\u{39}\u{7}\u{28}\u{2}\u{2}\u{39}\u{41}\u{3}\u{2}\u{2}\u{2}'
-  	'\u{3A}\u{3B}\u{5}\u{A}\u{6}\u{2}\u{3B}\u{3C}\u{7}\u{28}\u{2}\u{2}\u{3C}'
+  	'\u{2}\u{38}\u{39}\u{7}\u{37}\u{2}\u{2}\u{39}\u{41}\u{3}\u{2}\u{2}\u{2}'
+  	'\u{3A}\u{3B}\u{5}\u{A}\u{6}\u{2}\u{3B}\u{3C}\u{7}\u{37}\u{2}\u{2}\u{3C}'
   	'\u{41}\u{3}\u{2}\u{2}\u{2}\u{3D}\u{41}\u{5}\u{C}\u{7}\u{2}\u{3E}\u{41}'
   	'\u{5}\u{16}\u{C}\u{2}\u{3F}\u{41}\u{5}\u{18}\u{D}\u{2}\u{40}\u{37}\u{3}'
   	'\u{2}\u{2}\u{2}\u{40}\u{3A}\u{3}\u{2}\u{2}\u{2}\u{40}\u{3D}\u{3}\u{2}'
   	'\u{2}\u{2}\u{40}\u{3E}\u{3}\u{2}\u{2}\u{2}\u{40}\u{3F}\u{3}\u{2}\u{2}'
-  	'\u{2}\u{41}\u{7}\u{3}\u{2}\u{2}\u{2}\u{42}\u{44}\u{7}\u{30}\u{2}\u{2}'
+  	'\u{2}\u{41}\u{7}\u{3}\u{2}\u{2}\u{2}\u{42}\u{44}\u{7}\u{3F}\u{2}\u{2}'
   	'\u{43}\u{45}\u{5}\u{22}\u{12}\u{2}\u{44}\u{43}\u{3}\u{2}\u{2}\u{2}\u{44}'
   	'\u{45}\u{3}\u{2}\u{2}\u{2}\u{45}\u{46}\u{3}\u{2}\u{2}\u{2}\u{46}\u{47}'
-  	'\u{7}\u{29}\u{2}\u{2}\u{47}\u{48}\u{5}\u{1E}\u{10}\u{2}\u{48}\u{9}\u{3}'
-  	'\u{2}\u{2}\u{2}\u{49}\u{4A}\u{7}\u{2F}\u{2}\u{2}\u{4A}\u{4C}\u{7}\u{26}'
+  	'\u{7}\u{38}\u{2}\u{2}\u{47}\u{48}\u{5}\u{1E}\u{10}\u{2}\u{48}\u{9}\u{3}'
+  	'\u{2}\u{2}\u{2}\u{49}\u{4A}\u{7}\u{3E}\u{2}\u{2}\u{4A}\u{4C}\u{7}\u{35}'
   	'\u{2}\u{2}\u{4B}\u{4D}\u{5}\u{1C}\u{F}\u{2}\u{4C}\u{4B}\u{3}\u{2}\u{2}'
   	'\u{2}\u{4C}\u{4D}\u{3}\u{2}\u{2}\u{2}\u{4D}\u{4E}\u{3}\u{2}\u{2}\u{2}'
-  	'\u{4E}\u{6B}\u{7}\u{27}\u{2}\u{2}\u{4F}\u{50}\u{7}\u{30}\u{2}\u{2}\u{50}'
-  	'\u{52}\u{7}\u{26}\u{2}\u{2}\u{51}\u{53}\u{5}\u{1C}\u{F}\u{2}\u{52}\u{51}'
+  	'\u{4E}\u{6B}\u{7}\u{36}\u{2}\u{2}\u{4F}\u{50}\u{7}\u{3F}\u{2}\u{2}\u{50}'
+  	'\u{52}\u{7}\u{35}\u{2}\u{2}\u{51}\u{53}\u{5}\u{1C}\u{F}\u{2}\u{52}\u{51}'
   	'\u{3}\u{2}\u{2}\u{2}\u{52}\u{53}\u{3}\u{2}\u{2}\u{2}\u{53}\u{54}\u{3}'
-  	'\u{2}\u{2}\u{2}\u{54}\u{6B}\u{7}\u{27}\u{2}\u{2}\u{55}\u{56}\u{7}\u{3}'
-  	'\u{2}\u{2}\u{56}\u{58}\u{7}\u{26}\u{2}\u{2}\u{57}\u{59}\u{5}\u{1E}\u{10}'
+  	'\u{2}\u{2}\u{2}\u{54}\u{6B}\u{7}\u{36}\u{2}\u{2}\u{55}\u{56}\u{7}\u{4}'
+  	'\u{2}\u{2}\u{56}\u{58}\u{7}\u{35}\u{2}\u{2}\u{57}\u{59}\u{5}\u{1E}\u{10}'
   	'\u{2}\u{58}\u{57}\u{3}\u{2}\u{2}\u{2}\u{58}\u{59}\u{3}\u{2}\u{2}\u{2}'
-  	'\u{59}\u{5A}\u{3}\u{2}\u{2}\u{2}\u{5A}\u{6B}\u{7}\u{27}\u{2}\u{2}\u{5B}'
-  	'\u{5C}\u{7}\u{4}\u{2}\u{2}\u{5C}\u{5D}\u{7}\u{26}\u{2}\u{2}\u{5D}\u{5E}'
-  	'\u{5}\u{1E}\u{10}\u{2}\u{5E}\u{5F}\u{7}\u{27}\u{2}\u{2}\u{5F}\u{6B}\u{3}'
-  	'\u{2}\u{2}\u{2}\u{60}\u{61}\u{7}\u{6}\u{2}\u{2}\u{61}\u{62}\u{7}\u{26}'
-  	'\u{2}\u{2}\u{62}\u{63}\u{5}\u{1E}\u{10}\u{2}\u{63}\u{64}\u{7}\u{27}\u{2}'
-  	'\u{2}\u{64}\u{6B}\u{3}\u{2}\u{2}\u{2}\u{65}\u{66}\u{7}\u{7}\u{2}\u{2}'
-  	'\u{66}\u{67}\u{7}\u{26}\u{2}\u{2}\u{67}\u{68}\u{5}\u{1E}\u{10}\u{2}\u{68}'
-  	'\u{69}\u{7}\u{27}\u{2}\u{2}\u{69}\u{6B}\u{3}\u{2}\u{2}\u{2}\u{6A}\u{49}'
+  	'\u{59}\u{5A}\u{3}\u{2}\u{2}\u{2}\u{5A}\u{6B}\u{7}\u{36}\u{2}\u{2}\u{5B}'
+  	'\u{5C}\u{7}\u{5}\u{2}\u{2}\u{5C}\u{5D}\u{7}\u{35}\u{2}\u{2}\u{5D}\u{5E}'
+  	'\u{5}\u{1E}\u{10}\u{2}\u{5E}\u{5F}\u{7}\u{36}\u{2}\u{2}\u{5F}\u{6B}\u{3}'
+  	'\u{2}\u{2}\u{2}\u{60}\u{61}\u{7}\u{7}\u{2}\u{2}\u{61}\u{62}\u{7}\u{35}'
+  	'\u{2}\u{2}\u{62}\u{63}\u{5}\u{1E}\u{10}\u{2}\u{63}\u{64}\u{7}\u{36}\u{2}'
+  	'\u{2}\u{64}\u{6B}\u{3}\u{2}\u{2}\u{2}\u{65}\u{66}\u{7}\u{8}\u{2}\u{2}'
+  	'\u{66}\u{67}\u{7}\u{35}\u{2}\u{2}\u{67}\u{68}\u{5}\u{1E}\u{10}\u{2}\u{68}'
+  	'\u{69}\u{7}\u{36}\u{2}\u{2}\u{69}\u{6B}\u{3}\u{2}\u{2}\u{2}\u{6A}\u{49}'
   	'\u{3}\u{2}\u{2}\u{2}\u{6A}\u{4F}\u{3}\u{2}\u{2}\u{2}\u{6A}\u{55}\u{3}'
   	'\u{2}\u{2}\u{2}\u{6A}\u{5B}\u{3}\u{2}\u{2}\u{2}\u{6A}\u{60}\u{3}\u{2}'
   	'\u{2}\u{2}\u{6A}\u{65}\u{3}\u{2}\u{2}\u{2}\u{6B}\u{B}\u{3}\u{2}\u{2}'
@@ -1138,62 +1149,62 @@ class TLParser extends Parser {
   	'\u{6E}\u{3}\u{2}\u{2}\u{2}\u{70}\u{71}\u{3}\u{2}\u{2}\u{2}\u{71}\u{74}'
   	'\u{3}\u{2}\u{2}\u{2}\u{72}\u{70}\u{3}\u{2}\u{2}\u{2}\u{73}\u{75}\u{5}'
   	'\u{12}\u{A}\u{2}\u{74}\u{73}\u{3}\u{2}\u{2}\u{2}\u{74}\u{75}\u{3}\u{2}'
-  	'\u{2}\u{2}\u{75}\u{D}\u{3}\u{2}\u{2}\u{2}\u{76}\u{77}\u{7}\u{9}\u{2}'
-  	'\u{2}\u{77}\u{78}\u{5}\u{1E}\u{10}\u{2}\u{78}\u{79}\u{7}\u{22}\u{2}\u{2}'
-  	'\u{79}\u{7A}\u{5}\u{4}\u{3}\u{2}\u{7A}\u{7B}\u{7}\u{23}\u{2}\u{2}\u{7B}'
-  	'\u{F}\u{3}\u{2}\u{2}\u{2}\u{7C}\u{7D}\u{7}\u{A}\u{2}\u{2}\u{7D}\u{7E}'
-  	'\u{7}\u{9}\u{2}\u{2}\u{7E}\u{7F}\u{5}\u{1E}\u{10}\u{2}\u{7F}\u{80}\u{7}'
-  	'\u{22}\u{2}\u{2}\u{80}\u{81}\u{5}\u{4}\u{3}\u{2}\u{81}\u{82}\u{7}\u{23}'
-  	'\u{2}\u{2}\u{82}\u{11}\u{3}\u{2}\u{2}\u{2}\u{83}\u{84}\u{7}\u{A}\u{2}'
-  	'\u{2}\u{84}\u{85}\u{7}\u{22}\u{2}\u{2}\u{85}\u{86}\u{5}\u{4}\u{3}\u{2}'
-  	'\u{86}\u{87}\u{7}\u{23}\u{2}\u{2}\u{87}\u{13}\u{3}\u{2}\u{2}\u{2}\u{88}'
-  	'\u{89}\u{7}\u{8}\u{2}\u{2}\u{89}\u{8A}\u{7}\u{30}\u{2}\u{2}\u{8A}\u{8C}'
-  	'\u{7}\u{26}\u{2}\u{2}\u{8B}\u{8D}\u{5}\u{1A}\u{E}\u{2}\u{8C}\u{8B}\u{3}'
+  	'\u{2}\u{2}\u{75}\u{D}\u{3}\u{2}\u{2}\u{2}\u{76}\u{77}\u{7}\u{A}\u{2}'
+  	'\u{2}\u{77}\u{78}\u{5}\u{1E}\u{10}\u{2}\u{78}\u{79}\u{7}\u{31}\u{2}\u{2}'
+  	'\u{79}\u{7A}\u{5}\u{4}\u{3}\u{2}\u{7A}\u{7B}\u{7}\u{32}\u{2}\u{2}\u{7B}'
+  	'\u{F}\u{3}\u{2}\u{2}\u{2}\u{7C}\u{7D}\u{7}\u{B}\u{2}\u{2}\u{7D}\u{7E}'
+  	'\u{7}\u{A}\u{2}\u{2}\u{7E}\u{7F}\u{5}\u{1E}\u{10}\u{2}\u{7F}\u{80}\u{7}'
+  	'\u{31}\u{2}\u{2}\u{80}\u{81}\u{5}\u{4}\u{3}\u{2}\u{81}\u{82}\u{7}\u{32}'
+  	'\u{2}\u{2}\u{82}\u{11}\u{3}\u{2}\u{2}\u{2}\u{83}\u{84}\u{7}\u{B}\u{2}'
+  	'\u{2}\u{84}\u{85}\u{7}\u{31}\u{2}\u{2}\u{85}\u{86}\u{5}\u{4}\u{3}\u{2}'
+  	'\u{86}\u{87}\u{7}\u{32}\u{2}\u{2}\u{87}\u{13}\u{3}\u{2}\u{2}\u{2}\u{88}'
+  	'\u{89}\u{7}\u{9}\u{2}\u{2}\u{89}\u{8A}\u{7}\u{3F}\u{2}\u{2}\u{8A}\u{8C}'
+  	'\u{7}\u{35}\u{2}\u{2}\u{8B}\u{8D}\u{5}\u{1A}\u{E}\u{2}\u{8C}\u{8B}\u{3}'
   	'\u{2}\u{2}\u{2}\u{8C}\u{8D}\u{3}\u{2}\u{2}\u{2}\u{8D}\u{8E}\u{3}\u{2}'
-  	'\u{2}\u{2}\u{8E}\u{8F}\u{7}\u{27}\u{2}\u{2}\u{8F}\u{90}\u{7}\u{22}\u{2}'
-  	'\u{2}\u{90}\u{91}\u{5}\u{4}\u{3}\u{2}\u{91}\u{92}\u{7}\u{23}\u{2}\u{2}'
-  	'\u{92}\u{15}\u{3}\u{2}\u{2}\u{2}\u{93}\u{94}\u{7}\u{C}\u{2}\u{2}\u{94}'
-  	'\u{95}\u{7}\u{30}\u{2}\u{2}\u{95}\u{96}\u{7}\u{29}\u{2}\u{2}\u{96}\u{97}'
-  	'\u{5}\u{1E}\u{10}\u{2}\u{97}\u{98}\u{7}\u{E}\u{2}\u{2}\u{98}\u{99}\u{5}'
-  	'\u{1E}\u{10}\u{2}\u{99}\u{9A}\u{7}\u{22}\u{2}\u{2}\u{9A}\u{9B}\u{5}\u{4}'
-  	'\u{3}\u{2}\u{9B}\u{9C}\u{7}\u{23}\u{2}\u{2}\u{9C}\u{17}\u{3}\u{2}\u{2}'
-  	'\u{2}\u{9D}\u{9E}\u{7}\u{D}\u{2}\u{2}\u{9E}\u{9F}\u{5}\u{1E}\u{10}\u{2}'
-  	'\u{9F}\u{A0}\u{7}\u{22}\u{2}\u{2}\u{A0}\u{A1}\u{5}\u{4}\u{3}\u{2}\u{A1}'
-  	'\u{A2}\u{7}\u{23}\u{2}\u{2}\u{A2}\u{19}\u{3}\u{2}\u{2}\u{2}\u{A3}\u{A8}'
-  	'\u{7}\u{30}\u{2}\u{2}\u{A4}\u{A5}\u{7}\u{2A}\u{2}\u{2}\u{A5}\u{A7}\u{7}'
-  	'\u{30}\u{2}\u{2}\u{A6}\u{A4}\u{3}\u{2}\u{2}\u{2}\u{A7}\u{AA}\u{3}\u{2}'
+  	'\u{2}\u{2}\u{8E}\u{8F}\u{7}\u{36}\u{2}\u{2}\u{8F}\u{90}\u{7}\u{31}\u{2}'
+  	'\u{2}\u{90}\u{91}\u{5}\u{4}\u{3}\u{2}\u{91}\u{92}\u{7}\u{32}\u{2}\u{2}'
+  	'\u{92}\u{15}\u{3}\u{2}\u{2}\u{2}\u{93}\u{94}\u{7}\u{D}\u{2}\u{2}\u{94}'
+  	'\u{95}\u{7}\u{3F}\u{2}\u{2}\u{95}\u{96}\u{7}\u{38}\u{2}\u{2}\u{96}\u{97}'
+  	'\u{5}\u{1E}\u{10}\u{2}\u{97}\u{98}\u{7}\u{F}\u{2}\u{2}\u{98}\u{99}\u{5}'
+  	'\u{1E}\u{10}\u{2}\u{99}\u{9A}\u{7}\u{31}\u{2}\u{2}\u{9A}\u{9B}\u{5}\u{4}'
+  	'\u{3}\u{2}\u{9B}\u{9C}\u{7}\u{32}\u{2}\u{2}\u{9C}\u{17}\u{3}\u{2}\u{2}'
+  	'\u{2}\u{9D}\u{9E}\u{7}\u{E}\u{2}\u{2}\u{9E}\u{9F}\u{5}\u{1E}\u{10}\u{2}'
+  	'\u{9F}\u{A0}\u{7}\u{31}\u{2}\u{2}\u{A0}\u{A1}\u{5}\u{4}\u{3}\u{2}\u{A1}'
+  	'\u{A2}\u{7}\u{32}\u{2}\u{2}\u{A2}\u{19}\u{3}\u{2}\u{2}\u{2}\u{A3}\u{A8}'
+  	'\u{7}\u{3F}\u{2}\u{2}\u{A4}\u{A5}\u{7}\u{39}\u{2}\u{2}\u{A5}\u{A7}\u{7}'
+  	'\u{3F}\u{2}\u{2}\u{A6}\u{A4}\u{3}\u{2}\u{2}\u{2}\u{A7}\u{AA}\u{3}\u{2}'
   	'\u{2}\u{2}\u{A8}\u{A6}\u{3}\u{2}\u{2}\u{2}\u{A8}\u{A9}\u{3}\u{2}\u{2}'
   	'\u{2}\u{A9}\u{1B}\u{3}\u{2}\u{2}\u{2}\u{AA}\u{A8}\u{3}\u{2}\u{2}\u{2}'
-  	'\u{AB}\u{B0}\u{5}\u{1E}\u{10}\u{2}\u{AC}\u{AD}\u{7}\u{2A}\u{2}\u{2}\u{AD}'
+  	'\u{AB}\u{B0}\u{5}\u{1E}\u{10}\u{2}\u{AC}\u{AD}\u{7}\u{39}\u{2}\u{2}\u{AD}'
   	'\u{AF}\u{5}\u{1E}\u{10}\u{2}\u{AE}\u{AC}\u{3}\u{2}\u{2}\u{2}\u{AF}\u{B2}'
   	'\u{3}\u{2}\u{2}\u{2}\u{B0}\u{AE}\u{3}\u{2}\u{2}\u{2}\u{B0}\u{B1}\u{3}'
   	'\u{2}\u{2}\u{2}\u{B1}\u{1D}\u{3}\u{2}\u{2}\u{2}\u{B2}\u{B0}\u{3}\u{2}'
-  	'\u{2}\u{2}\u{B3}\u{B4}\u{8}\u{10}\u{1}\u{2}\u{B4}\u{B5}\u{7}\u{1E}\u{2}'
-  	'\u{2}\u{B5}\u{D8}\u{5}\u{1E}\u{10}\u{16}\u{B6}\u{B7}\u{7}\u{1A}\u{2}'
-  	'\u{2}\u{B7}\u{D8}\u{5}\u{1E}\u{10}\u{15}\u{B8}\u{D8}\u{7}\u{2E}\u{2}'
-  	'\u{2}\u{B9}\u{D8}\u{7}\u{2D}\u{2}\u{2}\u{BA}\u{D8}\u{7}\u{12}\u{2}\u{2}'
+  	'\u{2}\u{2}\u{B3}\u{B4}\u{8}\u{10}\u{1}\u{2}\u{B4}\u{B5}\u{7}\u{2D}\u{2}'
+  	'\u{2}\u{B5}\u{D8}\u{5}\u{1E}\u{10}\u{16}\u{B6}\u{B7}\u{7}\u{29}\u{2}'
+  	'\u{2}\u{B7}\u{D8}\u{5}\u{1E}\u{10}\u{15}\u{B8}\u{D8}\u{7}\u{3D}\u{2}'
+  	'\u{2}\u{B9}\u{D8}\u{7}\u{3C}\u{2}\u{2}\u{BA}\u{D8}\u{7}\u{13}\u{2}\u{2}'
   	'\u{BB}\u{BD}\u{5}\u{A}\u{6}\u{2}\u{BC}\u{BE}\u{5}\u{22}\u{12}\u{2}\u{BD}'
   	'\u{BC}\u{3}\u{2}\u{2}\u{2}\u{BD}\u{BE}\u{3}\u{2}\u{2}\u{2}\u{BE}\u{D8}'
   	'\u{3}\u{2}\u{2}\u{2}\u{BF}\u{C1}\u{5}\u{20}\u{11}\u{2}\u{C0}\u{C2}\u{5}'
   	'\u{22}\u{12}\u{2}\u{C1}\u{C0}\u{3}\u{2}\u{2}\u{2}\u{C1}\u{C2}\u{3}\u{2}'
-  	'\u{2}\u{2}\u{C2}\u{D8}\u{3}\u{2}\u{2}\u{2}\u{C3}\u{C5}\u{7}\u{30}\u{2}'
+  	'\u{2}\u{2}\u{C2}\u{D8}\u{3}\u{2}\u{2}\u{2}\u{C3}\u{C5}\u{7}\u{3F}\u{2}'
   	'\u{2}\u{C4}\u{C6}\u{5}\u{22}\u{12}\u{2}\u{C5}\u{C4}\u{3}\u{2}\u{2}\u{2}'
   	'\u{C5}\u{C6}\u{3}\u{2}\u{2}\u{2}\u{C6}\u{D8}\u{3}\u{2}\u{2}\u{2}\u{C7}'
-  	'\u{C9}\u{7}\u{31}\u{2}\u{2}\u{C8}\u{CA}\u{5}\u{22}\u{12}\u{2}\u{C9}\u{C8}'
+  	'\u{C9}\u{7}\u{40}\u{2}\u{2}\u{C8}\u{CA}\u{5}\u{22}\u{12}\u{2}\u{C9}\u{C8}'
   	'\u{3}\u{2}\u{2}\u{2}\u{C9}\u{CA}\u{3}\u{2}\u{2}\u{2}\u{CA}\u{D8}\u{3}'
-  	'\u{2}\u{2}\u{2}\u{CB}\u{CC}\u{7}\u{26}\u{2}\u{2}\u{CC}\u{CD}\u{5}\u{1E}'
-  	'\u{10}\u{2}\u{CD}\u{CF}\u{7}\u{27}\u{2}\u{2}\u{CE}\u{D0}\u{5}\u{22}\u{12}'
+  	'\u{2}\u{2}\u{2}\u{CB}\u{CC}\u{7}\u{35}\u{2}\u{2}\u{CC}\u{CD}\u{5}\u{1E}'
+  	'\u{10}\u{2}\u{CD}\u{CF}\u{7}\u{36}\u{2}\u{2}\u{CE}\u{D0}\u{5}\u{22}\u{12}'
   	'\u{2}\u{CF}\u{CE}\u{3}\u{2}\u{2}\u{2}\u{CF}\u{D0}\u{3}\u{2}\u{2}\u{2}'
-  	'\u{D0}\u{D8}\u{3}\u{2}\u{2}\u{2}\u{D1}\u{D2}\u{7}\u{5}\u{2}\u{2}\u{D2}'
-  	'\u{D4}\u{7}\u{26}\u{2}\u{2}\u{D3}\u{D5}\u{7}\u{31}\u{2}\u{2}\u{D4}\u{D3}'
+  	'\u{D0}\u{D8}\u{3}\u{2}\u{2}\u{2}\u{D1}\u{D2}\u{7}\u{6}\u{2}\u{2}\u{D2}'
+  	'\u{D4}\u{7}\u{35}\u{2}\u{2}\u{D3}\u{D5}\u{7}\u{40}\u{2}\u{2}\u{D4}\u{D3}'
   	'\u{3}\u{2}\u{2}\u{2}\u{D4}\u{D5}\u{3}\u{2}\u{2}\u{2}\u{D5}\u{D6}\u{3}'
-  	'\u{2}\u{2}\u{2}\u{D6}\u{D8}\u{7}\u{27}\u{2}\u{2}\u{D7}\u{B3}\u{3}\u{2}'
+  	'\u{2}\u{2}\u{2}\u{D6}\u{D8}\u{7}\u{36}\u{2}\u{2}\u{D7}\u{B3}\u{3}\u{2}'
   	'\u{2}\u{2}\u{D7}\u{B6}\u{3}\u{2}\u{2}\u{2}\u{D7}\u{B8}\u{3}\u{2}\u{2}'
   	'\u{2}\u{D7}\u{B9}\u{3}\u{2}\u{2}\u{2}\u{D7}\u{BA}\u{3}\u{2}\u{2}\u{2}'
   	'\u{D7}\u{BB}\u{3}\u{2}\u{2}\u{2}\u{D7}\u{BF}\u{3}\u{2}\u{2}\u{2}\u{D7}'
   	'\u{C3}\u{3}\u{2}\u{2}\u{2}\u{D7}\u{C7}\u{3}\u{2}\u{2}\u{2}\u{D7}\u{CB}'
   	'\u{3}\u{2}\u{2}\u{2}\u{D7}\u{D1}\u{3}\u{2}\u{2}\u{2}\u{D8}\u{F9}\u{3}'
-  	'\u{2}\u{2}\u{2}\u{D9}\u{DA}\u{C}\u{14}\u{2}\u{2}\u{DA}\u{DB}\u{7}\u{19}'
+  	'\u{2}\u{2}\u{2}\u{D9}\u{DA}\u{C}\u{14}\u{2}\u{2}\u{DA}\u{DB}\u{7}\u{3}'
   	'\u{2}\u{2}\u{DB}\u{F8}\u{5}\u{1E}\u{10}\u{14}\u{DC}\u{DD}\u{C}\u{13}'
   	'\u{2}\u{2}\u{DD}\u{DE}\u{9}\u{2}\u{2}\u{2}\u{DE}\u{F8}\u{5}\u{1E}\u{10}'
   	'\u{14}\u{DF}\u{E0}\u{C}\u{12}\u{2}\u{2}\u{E0}\u{E1}\u{9}\u{3}\u{2}\u{2}'
@@ -1201,12 +1212,12 @@ class TLParser extends Parser {
   	'\u{E3}\u{E4}\u{9}\u{4}\u{2}\u{2}\u{E4}\u{F8}\u{5}\u{1E}\u{10}\u{12}\u{E5}'
   	'\u{E6}\u{C}\u{10}\u{2}\u{2}\u{E6}\u{E7}\u{9}\u{5}\u{2}\u{2}\u{E7}\u{F8}'
   	'\u{5}\u{1E}\u{10}\u{11}\u{E8}\u{E9}\u{C}\u{F}\u{2}\u{2}\u{E9}\u{EA}\u{7}'
-  	'\u{14}\u{2}\u{2}\u{EA}\u{F8}\u{5}\u{1E}\u{10}\u{10}\u{EB}\u{EC}\u{C}'
-  	'\u{E}\u{2}\u{2}\u{EC}\u{ED}\u{7}\u{13}\u{2}\u{2}\u{ED}\u{F8}\u{5}\u{1E}'
-  	'\u{10}\u{F}\u{EE}\u{EF}\u{C}\u{D}\u{2}\u{2}\u{EF}\u{F0}\u{7}\u{2B}\u{2}'
-  	'\u{2}\u{F0}\u{F1}\u{5}\u{1E}\u{10}\u{2}\u{F1}\u{F2}\u{7}\u{2C}\u{2}\u{2}'
+  	'\u{24}\u{2}\u{2}\u{EA}\u{F8}\u{5}\u{1E}\u{10}\u{10}\u{EB}\u{EC}\u{C}'
+  	'\u{E}\u{2}\u{2}\u{EC}\u{ED}\u{7}\u{23}\u{2}\u{2}\u{ED}\u{F8}\u{5}\u{1E}'
+  	'\u{10}\u{F}\u{EE}\u{EF}\u{C}\u{D}\u{2}\u{2}\u{EF}\u{F0}\u{7}\u{3A}\u{2}'
+  	'\u{2}\u{F0}\u{F1}\u{5}\u{1E}\u{10}\u{2}\u{F1}\u{F2}\u{7}\u{3B}\u{2}\u{2}'
   	'\u{F2}\u{F3}\u{5}\u{1E}\u{10}\u{E}\u{F3}\u{F8}\u{3}\u{2}\u{2}\u{2}\u{F4}'
-  	'\u{F5}\u{C}\u{C}\u{2}\u{2}\u{F5}\u{F6}\u{7}\u{11}\u{2}\u{2}\u{F6}\u{F8}'
+  	'\u{F5}\u{C}\u{C}\u{2}\u{2}\u{F5}\u{F6}\u{7}\u{12}\u{2}\u{2}\u{F6}\u{F8}'
   	'\u{5}\u{1E}\u{10}\u{D}\u{F7}\u{D9}\u{3}\u{2}\u{2}\u{2}\u{F7}\u{DC}\u{3}'
   	'\u{2}\u{2}\u{2}\u{F7}\u{DF}\u{3}\u{2}\u{2}\u{2}\u{F7}\u{E2}\u{3}\u{2}'
   	'\u{2}\u{2}\u{F7}\u{E5}\u{3}\u{2}\u{2}\u{2}\u{F7}\u{E8}\u{3}\u{2}\u{2}'
@@ -1214,11 +1225,11 @@ class TLParser extends Parser {
   	'\u{F7}\u{F4}\u{3}\u{2}\u{2}\u{2}\u{F8}\u{FB}\u{3}\u{2}\u{2}\u{2}\u{F9}'
   	'\u{F7}\u{3}\u{2}\u{2}\u{2}\u{F9}\u{FA}\u{3}\u{2}\u{2}\u{2}\u{FA}\u{1F}'
   	'\u{3}\u{2}\u{2}\u{2}\u{FB}\u{F9}\u{3}\u{2}\u{2}\u{2}\u{FC}\u{FE}\u{7}'
-  	'\u{24}\u{2}\u{2}\u{FD}\u{FF}\u{5}\u{1C}\u{F}\u{2}\u{FE}\u{FD}\u{3}\u{2}'
+  	'\u{33}\u{2}\u{2}\u{FD}\u{FF}\u{5}\u{1C}\u{F}\u{2}\u{FE}\u{FD}\u{3}\u{2}'
   	'\u{2}\u{2}\u{FE}\u{FF}\u{3}\u{2}\u{2}\u{2}\u{FF}\u{100}\u{3}\u{2}\u{2}'
-  	'\u{2}\u{100}\u{101}\u{7}\u{25}\u{2}\u{2}\u{101}\u{21}\u{3}\u{2}\u{2}'
-  	'\u{2}\u{102}\u{103}\u{7}\u{24}\u{2}\u{2}\u{103}\u{104}\u{5}\u{1E}\u{10}'
-  	'\u{2}\u{104}\u{105}\u{7}\u{25}\u{2}\u{2}\u{105}\u{107}\u{3}\u{2}\u{2}'
+  	'\u{2}\u{100}\u{101}\u{7}\u{34}\u{2}\u{2}\u{101}\u{21}\u{3}\u{2}\u{2}'
+  	'\u{2}\u{102}\u{103}\u{7}\u{33}\u{2}\u{2}\u{103}\u{104}\u{5}\u{1E}\u{10}'
+  	'\u{2}\u{104}\u{105}\u{7}\u{34}\u{2}\u{2}\u{105}\u{107}\u{3}\u{2}\u{2}'
   	'\u{2}\u{106}\u{102}\u{3}\u{2}\u{2}\u{2}\u{107}\u{108}\u{3}\u{2}\u{2}'
   	'\u{2}\u{108}\u{106}\u{3}\u{2}\u{2}\u{2}\u{108}\u{109}\u{3}\u{2}\u{2}'
   	'\u{2}\u{109}\u{23}\u{3}\u{2}\u{2}\u{2}\u{1C}\u{26}\u{2C}\u{2E}\u{35}'
@@ -1228,23 +1239,15 @@ class TLParser extends Parser {
       ATNDeserializer().deserialize(_serializedATN.codeUnits);
 }
 class ParseContext extends ParserRuleContext {
-  TerminalNode EOF() => getToken(TLParser.TOKEN_EOF, 0);
+  TerminalNode EOF() => getToken(WhisperLanguageParser.TOKEN_EOF, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
   StatementContext statement() => getRuleContext<StatementContext>(0);
   ParseContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_parse;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterParse(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitParse(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitParse(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1257,23 +1260,15 @@ class BlockContext extends ParserRuleContext {
   StatementContext statement(int i) => getRuleContext<StatementContext>(i);
   List<FunctionDeclContext> functionDecls() => getRuleContexts<FunctionDeclContext>();
   FunctionDeclContext functionDecl(int i) => getRuleContext<FunctionDeclContext>(i);
-  TerminalNode Return() => getToken(TLParser.TOKEN_Return, 0);
+  TerminalNode Return() => getToken(WhisperLanguageParser.TOKEN_Return, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode SColon() => getToken(TLParser.TOKEN_SColon, 0);
+  TerminalNode SColon() => getToken(WhisperLanguageParser.TOKEN_SColon, 0);
   BlockContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_block;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterBlock(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitBlock(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitBlock(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1283,7 +1278,7 @@ class BlockContext extends ParserRuleContext {
 
 class StatementContext extends ParserRuleContext {
   AssignmentContext assignment() => getRuleContext<AssignmentContext>(0);
-  TerminalNode SColon() => getToken(TLParser.TOKEN_SColon, 0);
+  TerminalNode SColon() => getToken(WhisperLanguageParser.TOKEN_SColon, 0);
   FunctionCallContext functionCall() => getRuleContext<FunctionCallContext>(0);
   IfStatementContext ifStatement() => getRuleContext<IfStatementContext>(0);
   ForStatementContext forStatement() => getRuleContext<ForStatementContext>(0);
@@ -1292,16 +1287,8 @@ class StatementContext extends ParserRuleContext {
   @override
   int get ruleIndex => RULE_statement;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterStatement(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitStatement(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitStatement(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1310,24 +1297,16 @@ class StatementContext extends ParserRuleContext {
 }
 
 class AssignmentContext extends ParserRuleContext {
-  TerminalNode Identifier() => getToken(TLParser.TOKEN_Identifier, 0);
-  TerminalNode Assign() => getToken(TLParser.TOKEN_Assign, 0);
+  TerminalNode Identifier() => getToken(WhisperLanguageParser.TOKEN_Identifier, 0);
+  TerminalNode Assign() => getToken(WhisperLanguageParser.TOKEN_Assign, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
   IndexesContext indexes() => getRuleContext<IndexesContext>(0);
   AssignmentContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_assignment;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterAssignment(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitAssignment(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitAssignment(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1355,16 +1334,8 @@ class IfStatementContext extends ParserRuleContext {
   @override
   int get ruleIndex => RULE_ifStatement;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterIfStatement(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitIfStatement(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitIfStatement(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1373,25 +1344,17 @@ class IfStatementContext extends ParserRuleContext {
 }
 
 class IfStatContext extends ParserRuleContext {
-  TerminalNode If() => getToken(TLParser.TOKEN_If, 0);
+  TerminalNode If() => getToken(WhisperLanguageParser.TOKEN_If, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode OBrace() => getToken(TLParser.TOKEN_OBrace, 0);
+  TerminalNode OBrace() => getToken(WhisperLanguageParser.TOKEN_OBrace, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
-  TerminalNode CBrace() => getToken(TLParser.TOKEN_CBrace, 0);
+  TerminalNode CBrace() => getToken(WhisperLanguageParser.TOKEN_CBrace, 0);
   IfStatContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_ifStat;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterIfStat(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitIfStat(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitIfStat(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1400,26 +1363,18 @@ class IfStatContext extends ParserRuleContext {
 }
 
 class ElseIfStatContext extends ParserRuleContext {
-  TerminalNode Else() => getToken(TLParser.TOKEN_Else, 0);
-  TerminalNode If() => getToken(TLParser.TOKEN_If, 0);
+  TerminalNode Else() => getToken(WhisperLanguageParser.TOKEN_Else, 0);
+  TerminalNode If() => getToken(WhisperLanguageParser.TOKEN_If, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode OBrace() => getToken(TLParser.TOKEN_OBrace, 0);
+  TerminalNode OBrace() => getToken(WhisperLanguageParser.TOKEN_OBrace, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
-  TerminalNode CBrace() => getToken(TLParser.TOKEN_CBrace, 0);
+  TerminalNode CBrace() => getToken(WhisperLanguageParser.TOKEN_CBrace, 0);
   ElseIfStatContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_elseIfStat;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterElseIfStat(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitElseIfStat(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitElseIfStat(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1428,24 +1383,16 @@ class ElseIfStatContext extends ParserRuleContext {
 }
 
 class ElseStatContext extends ParserRuleContext {
-  TerminalNode Else() => getToken(TLParser.TOKEN_Else, 0);
-  TerminalNode OBrace() => getToken(TLParser.TOKEN_OBrace, 0);
+  TerminalNode Else() => getToken(WhisperLanguageParser.TOKEN_Else, 0);
+  TerminalNode OBrace() => getToken(WhisperLanguageParser.TOKEN_OBrace, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
-  TerminalNode CBrace() => getToken(TLParser.TOKEN_CBrace, 0);
+  TerminalNode CBrace() => getToken(WhisperLanguageParser.TOKEN_CBrace, 0);
   ElseStatContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_elseStat;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterElseStat(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitElseStat(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitElseStat(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1454,28 +1401,20 @@ class ElseStatContext extends ParserRuleContext {
 }
 
 class FunctionDeclContext extends ParserRuleContext {
-  TerminalNode Def() => getToken(TLParser.TOKEN_Def, 0);
-  TerminalNode Identifier() => getToken(TLParser.TOKEN_Identifier, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
-  TerminalNode OBrace() => getToken(TLParser.TOKEN_OBrace, 0);
+  TerminalNode Def() => getToken(WhisperLanguageParser.TOKEN_Def, 0);
+  TerminalNode Identifier() => getToken(WhisperLanguageParser.TOKEN_Identifier, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
+  TerminalNode OBrace() => getToken(WhisperLanguageParser.TOKEN_OBrace, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
-  TerminalNode CBrace() => getToken(TLParser.TOKEN_CBrace, 0);
+  TerminalNode CBrace() => getToken(WhisperLanguageParser.TOKEN_CBrace, 0);
   IdListContext idList() => getRuleContext<IdListContext>(0);
   FunctionDeclContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_functionDecl;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterFunctionDecl(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitFunctionDecl(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitFunctionDecl(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1484,29 +1423,21 @@ class FunctionDeclContext extends ParserRuleContext {
 }
 
 class ForStatementContext extends ParserRuleContext {
-  TerminalNode For() => getToken(TLParser.TOKEN_For, 0);
-  TerminalNode Identifier() => getToken(TLParser.TOKEN_Identifier, 0);
-  TerminalNode Assign() => getToken(TLParser.TOKEN_Assign, 0);
+  TerminalNode For() => getToken(WhisperLanguageParser.TOKEN_For, 0);
+  TerminalNode Identifier() => getToken(WhisperLanguageParser.TOKEN_Identifier, 0);
+  TerminalNode Assign() => getToken(WhisperLanguageParser.TOKEN_Assign, 0);
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode To() => getToken(TLParser.TOKEN_To, 0);
-  TerminalNode OBrace() => getToken(TLParser.TOKEN_OBrace, 0);
+  TerminalNode To() => getToken(WhisperLanguageParser.TOKEN_To, 0);
+  TerminalNode OBrace() => getToken(WhisperLanguageParser.TOKEN_OBrace, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
-  TerminalNode CBrace() => getToken(TLParser.TOKEN_CBrace, 0);
+  TerminalNode CBrace() => getToken(WhisperLanguageParser.TOKEN_CBrace, 0);
   ForStatementContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_forStatement;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterForStatement(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitForStatement(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitForStatement(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1515,25 +1446,17 @@ class ForStatementContext extends ParserRuleContext {
 }
 
 class WhileStatementContext extends ParserRuleContext {
-  TerminalNode While() => getToken(TLParser.TOKEN_While, 0);
+  TerminalNode While() => getToken(WhisperLanguageParser.TOKEN_While, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode OBrace() => getToken(TLParser.TOKEN_OBrace, 0);
+  TerminalNode OBrace() => getToken(WhisperLanguageParser.TOKEN_OBrace, 0);
   BlockContext block() => getRuleContext<BlockContext>(0);
-  TerminalNode CBrace() => getToken(TLParser.TOKEN_CBrace, 0);
+  TerminalNode CBrace() => getToken(WhisperLanguageParser.TOKEN_CBrace, 0);
   WhileStatementContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_whileStatement;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterWhileStatement(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitWhileStatement(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitWhileStatement(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1542,24 +1465,16 @@ class WhileStatementContext extends ParserRuleContext {
 }
 
 class IdListContext extends ParserRuleContext {
-  List<TerminalNode> Identifiers() => getTokens(TLParser.TOKEN_Identifier);
-  TerminalNode Identifier(int i) => getToken(TLParser.TOKEN_Identifier, i);
-  List<TerminalNode> Commas() => getTokens(TLParser.TOKEN_Comma);
-  TerminalNode Comma(int i) => getToken(TLParser.TOKEN_Comma, i);
+  List<TerminalNode> Identifiers() => getTokens(WhisperLanguageParser.TOKEN_Identifier);
+  TerminalNode Identifier(int i) => getToken(WhisperLanguageParser.TOKEN_Identifier, i);
+  List<TerminalNode> Commas() => getTokens(WhisperLanguageParser.TOKEN_Comma);
+  TerminalNode Comma(int i) => getToken(WhisperLanguageParser.TOKEN_Comma, i);
   IdListContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_idList;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterIdList(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitIdList(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitIdList(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1570,22 +1485,14 @@ class IdListContext extends ParserRuleContext {
 class ExprListContext extends ParserRuleContext {
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  List<TerminalNode> Commas() => getTokens(TLParser.TOKEN_Comma);
-  TerminalNode Comma(int i) => getToken(TLParser.TOKEN_Comma, i);
+  List<TerminalNode> Commas() => getTokens(WhisperLanguageParser.TOKEN_Comma);
+  TerminalNode Comma(int i) => getToken(WhisperLanguageParser.TOKEN_Comma, i);
   ExprListContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_exprList;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterExprList(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitExprList(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitExprList(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1604,25 +1511,17 @@ class ExpressionContext extends ParserRuleContext {
   }
 }
 
-class ListContext extends ParserRuleContext {
-  TerminalNode OBracket() => getToken(TLParser.TOKEN_OBracket, 0);
-  TerminalNode CBracket() => getToken(TLParser.TOKEN_CBracket, 0);
+class List_AliasContext extends ParserRuleContext {
+  TerminalNode OBracket() => getToken(WhisperLanguageParser.TOKEN_OBracket, 0);
+  TerminalNode CBracket() => getToken(WhisperLanguageParser.TOKEN_CBracket, 0);
   ExprListContext exprList() => getRuleContext<ExprListContext>(0);
-  ListContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
+  List_AliasContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
-  int get ruleIndex => RULE_list;
-  @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterList(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitList(this);
-  }
+  int get ruleIndex => RULE_list_Alias;
   @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
-     return visitor.visitList(this);
+    if (visitor is WhisperLanguageVisitor<T>) {
+     return visitor.visitList_Alias(this);
     } else {
     	return visitor.visitChildren(this);
     }
@@ -1630,26 +1529,18 @@ class ListContext extends ParserRuleContext {
 }
 
 class IndexesContext extends ParserRuleContext {
-  List<TerminalNode> OBrackets() => getTokens(TLParser.TOKEN_OBracket);
-  TerminalNode OBracket(int i) => getToken(TLParser.TOKEN_OBracket, i);
+  List<TerminalNode> OBrackets() => getTokens(WhisperLanguageParser.TOKEN_OBracket);
+  TerminalNode OBracket(int i) => getToken(WhisperLanguageParser.TOKEN_OBracket, i);
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  List<TerminalNode> CBrackets() => getTokens(TLParser.TOKEN_CBracket);
-  TerminalNode CBracket(int i) => getToken(TLParser.TOKEN_CBracket, i);
+  List<TerminalNode> CBrackets() => getTokens(WhisperLanguageParser.TOKEN_CBracket);
+  TerminalNode CBracket(int i) => getToken(WhisperLanguageParser.TOKEN_CBracket, i);
   IndexesContext([ParserRuleContext parent, int invokingState]) : super(parent, invokingState);
   @override
   int get ruleIndex => RULE_indexes;
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterIndexes(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitIndexes(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitIndexes(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1658,22 +1549,14 @@ class IndexesContext extends ParserRuleContext {
 }
 
 class AssertFunctionCallContext extends FunctionCallContext {
-  TerminalNode Assert() => getToken(TLParser.TOKEN_Assert, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
+  TerminalNode Assert() => getToken(WhisperLanguageParser.TOKEN_Assert, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   AssertFunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterAssertFunctionCall(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitAssertFunctionCall(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitAssertFunctionCall(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1682,22 +1565,14 @@ class AssertFunctionCallContext extends FunctionCallContext {
 }
 
 class SizeFunctionCallContext extends FunctionCallContext {
-  TerminalNode Size() => getToken(TLParser.TOKEN_Size, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
+  TerminalNode Size() => getToken(WhisperLanguageParser.TOKEN_Size, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   SizeFunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterSizeFunctionCall(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitSizeFunctionCall(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitSizeFunctionCall(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1706,22 +1581,14 @@ class SizeFunctionCallContext extends FunctionCallContext {
 }
 
 class PrintlnFunctionCallContext extends FunctionCallContext {
-  TerminalNode Println() => getToken(TLParser.TOKEN_Println, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode Println() => getToken(WhisperLanguageParser.TOKEN_Println, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
   PrintlnFunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterPrintlnFunctionCall(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitPrintlnFunctionCall(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitPrintlnFunctionCall(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1730,22 +1597,14 @@ class PrintlnFunctionCallContext extends FunctionCallContext {
 }
 
 class BuildInIdentifierFunctionCallContext extends FunctionCallContext {
-  TerminalNode BuildIdentifier() => getToken(TLParser.TOKEN_BuildIdentifier, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode BuildIdentifier() => getToken(WhisperLanguageParser.TOKEN_BuildIdentifier, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   ExprListContext exprList() => getRuleContext<ExprListContext>(0);
   BuildInIdentifierFunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterBuildInIdentifierFunctionCall(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitBuildInIdentifierFunctionCall(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitBuildInIdentifierFunctionCall(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1754,22 +1613,14 @@ class BuildInIdentifierFunctionCallContext extends FunctionCallContext {
 }
 
 class IdentifierFunctionCallContext extends FunctionCallContext {
-  TerminalNode Identifier() => getToken(TLParser.TOKEN_Identifier, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode Identifier() => getToken(WhisperLanguageParser.TOKEN_Identifier, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   ExprListContext exprList() => getRuleContext<ExprListContext>(0);
   IdentifierFunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterIdentifierFunctionCall(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitIdentifierFunctionCall(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitIdentifierFunctionCall(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1778,41 +1629,25 @@ class IdentifierFunctionCallContext extends FunctionCallContext {
 }
 
 class PrintFunctionCallContext extends FunctionCallContext {
-  TerminalNode Print() => getToken(TLParser.TOKEN_Print, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
+  TerminalNode Print() => getToken(WhisperLanguageParser.TOKEN_Print, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   PrintFunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterPrintFunctionCall(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitPrintFunctionCall(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitPrintFunctionCall(this);
     } else {
     	return visitor.visitChildren(this);
     }
   }
 }class BoolExpressionContext extends ExpressionContext {
-  TerminalNode Bool() => getToken(TLParser.TOKEN_Bool, 0);
+  TerminalNode Bool() => getToken(WhisperLanguageParser.TOKEN_Bool, 0);
   BoolExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterBoolExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitBoolExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitBoolExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1821,19 +1656,11 @@ class PrintFunctionCallContext extends FunctionCallContext {
 }
 
 class NumberExpressionContext extends ExpressionContext {
-  TerminalNode Number() => getToken(TLParser.TOKEN_Number, 0);
+  TerminalNode Number() => getToken(WhisperLanguageParser.TOKEN_Number, 0);
   NumberExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterNumberExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitNumberExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitNumberExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1842,20 +1669,12 @@ class NumberExpressionContext extends ExpressionContext {
 }
 
 class IdentifierExpressionContext extends ExpressionContext {
-  TerminalNode Identifier() => getToken(TLParser.TOKEN_Identifier, 0);
+  TerminalNode Identifier() => getToken(WhisperLanguageParser.TOKEN_Identifier, 0);
   IndexesContext indexes() => getRuleContext<IndexesContext>(0);
   IdentifierExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterIdentifierExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitIdentifierExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitIdentifierExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1864,20 +1683,12 @@ class IdentifierExpressionContext extends ExpressionContext {
 }
 
 class NotExpressionContext extends ExpressionContext {
-  TerminalNode Excl() => getToken(TLParser.TOKEN_Excl, 0);
+  TerminalNode Excl() => getToken(WhisperLanguageParser.TOKEN_Excl, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
   NotExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterNotExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitNotExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitNotExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1888,19 +1699,11 @@ class NotExpressionContext extends ExpressionContext {
 class OrExpressionContext extends ExpressionContext {
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode Or() => getToken(TLParser.TOKEN_Or, 0);
+  TerminalNode Or() => getToken(WhisperLanguageParser.TOKEN_Or, 0);
   OrExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterOrExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitOrExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitOrExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1909,20 +1712,12 @@ class OrExpressionContext extends ExpressionContext {
 }
 
 class UnaryMinusExpressionContext extends ExpressionContext {
-  TerminalNode Subtract() => getToken(TLParser.TOKEN_Subtract, 0);
+  TerminalNode Subtract() => getToken(WhisperLanguageParser.TOKEN_Subtract, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
   UnaryMinusExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterUnaryMinusExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitUnaryMinusExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitUnaryMinusExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1933,19 +1728,10 @@ class UnaryMinusExpressionContext extends ExpressionContext {
 class PowerExpressionContext extends ExpressionContext {
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode Pow() => getToken(TLParser.TOKEN_Pow, 0);
   PowerExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterPowerExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitPowerExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitPowerExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1957,20 +1743,12 @@ class EqExpressionContext extends ExpressionContext {
   Token op;
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode Equals() => getToken(TLParser.TOKEN_Equals, 0);
-  TerminalNode NEquals() => getToken(TLParser.TOKEN_NEquals, 0);
+  TerminalNode Equals() => getToken(WhisperLanguageParser.TOKEN_Equals, 0);
+  TerminalNode NEquals() => getToken(WhisperLanguageParser.TOKEN_NEquals, 0);
   EqExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterEqExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitEqExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitEqExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -1981,19 +1759,11 @@ class EqExpressionContext extends ExpressionContext {
 class AndExpressionContext extends ExpressionContext {
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode And() => getToken(TLParser.TOKEN_And, 0);
+  TerminalNode And() => getToken(WhisperLanguageParser.TOKEN_And, 0);
   AndExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterAndExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitAndExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitAndExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2004,19 +1774,11 @@ class AndExpressionContext extends ExpressionContext {
 class InExpressionContext extends ExpressionContext {
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode In() => getToken(TLParser.TOKEN_In, 0);
+  TerminalNode In() => getToken(WhisperLanguageParser.TOKEN_In, 0);
   InExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterInExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitInExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitInExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2025,20 +1787,12 @@ class InExpressionContext extends ExpressionContext {
 }
 
 class StringExpressionContext extends ExpressionContext {
-  TerminalNode String() => getToken(TLParser.TOKEN_String, 0);
+  TerminalNode String_Alias() => getToken(WhisperLanguageParser.TOKEN_String_Alias, 0);
   IndexesContext indexes() => getRuleContext<IndexesContext>(0);
   StringExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterStringExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitStringExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitStringExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2047,22 +1801,14 @@ class StringExpressionContext extends ExpressionContext {
 }
 
 class ExpressionExpressionContext extends ExpressionContext {
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
   ExpressionContext expression() => getRuleContext<ExpressionContext>(0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
   IndexesContext indexes() => getRuleContext<IndexesContext>(0);
   ExpressionExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterExpressionExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitExpressionExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitExpressionExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2074,20 +1820,12 @@ class AddExpressionContext extends ExpressionContext {
   Token op;
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode Add() => getToken(TLParser.TOKEN_Add, 0);
-  TerminalNode Subtract() => getToken(TLParser.TOKEN_Subtract, 0);
+  TerminalNode Add() => getToken(WhisperLanguageParser.TOKEN_Add, 0);
+  TerminalNode Subtract() => getToken(WhisperLanguageParser.TOKEN_Subtract, 0);
   AddExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterAddExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitAddExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitAddExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2099,22 +1837,14 @@ class CompExpressionContext extends ExpressionContext {
   Token op;
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode GTEquals() => getToken(TLParser.TOKEN_GTEquals, 0);
-  TerminalNode LTEquals() => getToken(TLParser.TOKEN_LTEquals, 0);
-  TerminalNode GT() => getToken(TLParser.TOKEN_GT, 0);
-  TerminalNode LT() => getToken(TLParser.TOKEN_LT, 0);
+  TerminalNode GTEquals() => getToken(WhisperLanguageParser.TOKEN_GTEquals, 0);
+  TerminalNode LTEquals() => getToken(WhisperLanguageParser.TOKEN_LTEquals, 0);
+  TerminalNode GT() => getToken(WhisperLanguageParser.TOKEN_GT, 0);
+  TerminalNode LT() => getToken(WhisperLanguageParser.TOKEN_LT, 0);
   CompExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterCompExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitCompExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitCompExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2123,19 +1853,11 @@ class CompExpressionContext extends ExpressionContext {
 }
 
 class NullExpressionContext extends ExpressionContext {
-  TerminalNode Null() => getToken(TLParser.TOKEN_Null, 0);
+  TerminalNode Null() => getToken(WhisperLanguageParser.TOKEN_Null, 0);
   NullExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterNullExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitNullExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitNullExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2148,16 +1870,8 @@ class FunctionCallExpressionContext extends ExpressionContext {
   IndexesContext indexes() => getRuleContext<IndexesContext>(0);
   FunctionCallExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterFunctionCallExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitFunctionCallExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitFunctionCallExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2169,21 +1883,13 @@ class MultExpressionContext extends ExpressionContext {
   Token op;
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode Multiply() => getToken(TLParser.TOKEN_Multiply, 0);
-  TerminalNode Divide() => getToken(TLParser.TOKEN_Divide, 0);
-  TerminalNode Modulus() => getToken(TLParser.TOKEN_Modulus, 0);
+  TerminalNode Multiply() => getToken(WhisperLanguageParser.TOKEN_Multiply, 0);
+  TerminalNode Divide() => getToken(WhisperLanguageParser.TOKEN_Divide, 0);
+  TerminalNode Modulus() => getToken(WhisperLanguageParser.TOKEN_Modulus, 0);
   MultExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterMultExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitMultExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitMultExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2192,20 +1898,12 @@ class MultExpressionContext extends ExpressionContext {
 }
 
 class ListExpressionContext extends ExpressionContext {
-  ListContext list() => getRuleContext<ListContext>(0);
+  List_AliasContext list_Alias() => getRuleContext<List_AliasContext>(0);
   IndexesContext indexes() => getRuleContext<IndexesContext>(0);
   ListExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterListExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitListExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitListExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2216,20 +1914,12 @@ class ListExpressionContext extends ExpressionContext {
 class TernaryExpressionContext extends ExpressionContext {
   List<ExpressionContext> expressions() => getRuleContexts<ExpressionContext>();
   ExpressionContext expression(int i) => getRuleContext<ExpressionContext>(i);
-  TerminalNode QMark() => getToken(TLParser.TOKEN_QMark, 0);
-  TerminalNode Colon() => getToken(TLParser.TOKEN_Colon, 0);
+  TerminalNode QMark() => getToken(WhisperLanguageParser.TOKEN_QMark, 0);
+  TerminalNode Colon() => getToken(WhisperLanguageParser.TOKEN_Colon, 0);
   TernaryExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterTernaryExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitTernaryExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitTernaryExpression(this);
     } else {
     	return visitor.visitChildren(this);
@@ -2238,22 +1928,14 @@ class TernaryExpressionContext extends ExpressionContext {
 }
 
 class InputExpressionContext extends ExpressionContext {
-  TerminalNode Input() => getToken(TLParser.TOKEN_Input, 0);
-  TerminalNode OParen() => getToken(TLParser.TOKEN_OParen, 0);
-  TerminalNode CParen() => getToken(TLParser.TOKEN_CParen, 0);
-  TerminalNode String() => getToken(TLParser.TOKEN_String, 0);
+  TerminalNode Input() => getToken(WhisperLanguageParser.TOKEN_Input, 0);
+  TerminalNode OParen() => getToken(WhisperLanguageParser.TOKEN_OParen, 0);
+  TerminalNode CParen() => getToken(WhisperLanguageParser.TOKEN_CParen, 0);
+  TerminalNode String_Alias() => getToken(WhisperLanguageParser.TOKEN_String_Alias, 0);
   InputExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
   @override
-  void enterRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.enterInputExpression(this);
-  }
-  @override
-  void exitRule(ParseTreeListener listener) {
-    if (listener is TLListener) listener.exitInputExpression(this);
-  }
-  @override
   T accept<T>(ParseTreeVisitor<T> visitor) {
-    if (visitor is TLVisitor<T>) {
+    if (visitor is WhisperLanguageVisitor<T>) {
      return visitor.visitInputExpression(this);
     } else {
     	return visitor.visitChildren(this);
